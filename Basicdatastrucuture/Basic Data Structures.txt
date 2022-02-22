@@ -1,0 +1,355 @@
+
+Q1.Find out if the given number is an Armstrong number or not. 
+Code:
+
+package Assignment1;
+import java.util.*;
+
+class ArmstrongOrNot {
+    public boolean armstrongCheck(int num)
+    {
+        int temp = num;
+        int count = 0;
+        while(temp!=0)
+        {
+            count++;
+            temp = temp/10;
+        }
+        int sum = 0;
+        int m = num;
+        while(m!=0)
+        {
+          int var = m%10;
+          sum = sum + (int)Math.pow(var,count);
+          m = m/10;
+        }
+        if(sum == num)
+        {
+          return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+  }
+
+  public class Assignment1Q1
+  {
+    public static void main(String[] args)
+    {
+      ArmstrongOrNot ob = new ArmstrongOrNot();
+      try (Scanner s = new Scanner(System.in)) {
+		int n = s.nextInt();
+		  boolean b = ob.armstrongCheck(n);
+		  System.out.println(b);
+	}
+    }
+  }
+
+Q2.
+
+import java.util.*;
+
+class ArmstrongNumBetweenRange
+{
+    public void armstrongNumbersInRange(int min,int max)
+    {
+        int temp;
+        temp = min;
+        int sum = 0;
+        while(temp!=0)
+        {
+          int r = temp%10;
+          sum = sum+(int)Math.pow(r,3);
+          temp = temp/10;
+        }
+        if(sum == min)
+          System.out.println(sum);
+      }
+    }
+
+  public class Assignment1Q2 {
+    public static void main (String [] args)
+    {
+      ArmstrongNumBetweenRange ob = new ArmstrongNumBetweenRange();
+      int min = 100;int max = 999;
+      for(int i=min;i<=max;i++)
+      {
+        ob.armstrongNumbersInRange(i,max);
+      }
+    }
+  }
+
+Q3.
+
+import java.util.*;
+class SiCi {
+    public double simpleInterest(double principalAmount,int time,double interestRate)
+    {
+      double simple;
+      simple = (principalAmount * (double)time * interestRate)/100;
+      return simple;
+    }
+
+    public double compoundInterest(double principalAmount,int time,double interestRate)
+    {
+      double compound;
+      compound = (principalAmount*(Math.pow(1+interestRate,time))-principalAmount);
+      return compound;
+    }
+}
+
+public class Assignment1Q3 {
+    public static void main (String args[])
+    {
+      SiCi ob = new SiCi();
+      Scanner s = new Scanner(System.in);
+      double p = s.nextDouble();
+      int t = s.nextInt();
+      double r = s.nextDouble();
+      double SI = ob.simpleInterest(p,t,r);
+      System.out.println(SI);
+      double CI = ob.compoundInterest(p,t,r);
+      System.out.println(CI);
+}
+}
+
+Q4.
+import java.util.*;
+
+class ResultDeclaration{
+    public String declareResults( double s1, double s2, double s3)
+    {
+      String res1 = new String();
+      res1 = "passed";
+      String res2 = new String();
+      res2 = "promoted";
+      String res3 = new String();
+      res3 = "failed";
+      if(s1>60 && s2>60 && s3>60)
+      {
+        return res1;
+      }
+      else if((s1>60 && s2>60 && s3<60)||(s1>60 && s2<60 && s3>60)||(s1<60 && s2>60 && s3>60))
+      {
+        return res2;
+      }
+      return res3;
+    }
+}
+
+public class Assignment1Q4 {
+    public static void main(String[] args)
+    {
+      ResultDeclaration ob = new ResultDeclaration();
+      Scanner s = new Scanner(System.in);
+      double s1 = s.nextDouble();
+      double s2 = s.nextDouble();
+      double s3 = s.nextDouble();
+      String result = ob.declareResults(s1,s2,s3);
+      System.out.println(result);
+    }
+}
+
+Q5.
+
+import java.util.*;
+class TaxAmount{
+    public double calculateTaxAmount(double ctc)
+    {
+    	if(ctc>0 && ctc <=180000)
+    	{
+    		return 0;
+    	}
+    	else if(ctc>181001 && ctc <=300000)
+    	{
+    		return ctc*0.1;
+    	}
+    	else if(ctc>300001 && ctc <=500000)
+    	{
+    		return ctc*20/100;
+    	}
+    	else
+    	{
+    		double a=ctc*30/100;
+    		return a;
+    	}
+    }
+}
+public class Assignment1Q5 {
+ public static void main(String args[])
+ {
+	 TaxAmount ob=new TaxAmount();
+	 Scanner sc=new Scanner(System.in);
+	 double c=sc.nextDouble();
+	 double a=ob.calculateTaxAmount(c);
+	 //double d=90;
+	 System.out.println(a);
+ }
+}
+
+Q6.
+
+import java.util.*;
+class Login{
+	//static int k=0;
+    String userId = "vinesh",password = "password";
+   // Assingment1Q6 ob=new Assingment1Q6();
+    public String loginUser(String user, String pass)
+    {
+    		if(userId.equals(user) && pass.equals(password))
+    		{
+    			return "welcome";
+    		}
+    	/*	else
+    		{
+    			k++;
+    		}*/
+    return "NOP";
+    }
+
+}
+public class Assignment1Q6 
+{
+    public static void main(String args[]) 
+    {
+    	String a,b;
+   	 int k=0;
+    	Scanner sc=new Scanner(System.in);
+    	while(true)
+    	{
+    		++k;
+    	a=sc.nextLine();
+    	b=sc.nextLine();
+    	Login ib=new Login();
+    	String s=ib.loginUser(a, b);
+    	if(s.equals("welcome"))
+    	{
+    	System.out.println(s);
+    	break;
+    	}
+    	if(k==3)
+    	{
+    		System.out.println("contact Admin ");
+    		break;
+    	}
+    	}
+    	
+
+    }
+}
+
+Q7.
+
+import java.util.*;
+
+class SearchArray{
+    public boolean searchArray(int[] arr,int toCheckValue)
+    {
+      for(int i=0;i<15;i++)
+      {
+        if(toCheckValue==arr[i])
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+}
+
+public class Assignment1Q7 {
+    public static void main(String[] args) {
+      SearchArray ob = new SearchArray();
+      int arr[] = { 5,12,14,6,78,19,1,23,26,35,37,7,52,86,47};
+      int valueToCheck = 19;
+      boolean b = ob.searchArray(arr,valueToCheck);
+      System.out.println(b);
+}
+}
+
+Q8.
+
+import java.util.*;
+
+class BubbleSort{
+
+    public int[] bubbleSort(int arr[])
+    {
+      int n = arr.length;
+      for(int i=0;i<n;i++)
+      {
+        for(int j=1;j<n-i;j++)
+        {
+          if(arr[j]<arr[j-1])
+          {
+            int temp = arr[j];
+            arr[j] = arr[j-1];
+            arr[j-1] = temp;
+          }
+        }
+      }
+      return arr;
+    }
+}
+
+public class Assignment1Q8 {
+    public static void main(String args[]) {
+      BubbleSort ob = new BubbleSort();
+      int arr[] = {5,12,14,6,78,19,1,23,26,35,37,7,52,86,47};
+      int m = arr.length;
+      int [] a = new int[m];
+      a = ob.bubbleSort(arr);
+      for(int i=0;i<m;i++)
+      {
+        System.out.print(a[i]+" ");
+      }
+    }
+}
+
+Q9.
+
+import java.util.*;
+class Students
+{
+	private int a,b,c;
+	int p,q,r;
+	Students(int a,int b,int c)
+	{
+		this.a=a;
+		this.b=b;
+		this.c=c;
+	}
+	public int totalmarks(Students s[])
+	{
+		for(int i=0;i<3;i++)
+		{
+			p=0;
+			p=s[i].a+s[i].b+s[i].c;
+			q=q+p;
+		}
+
+		
+		return q;
+	}
+}
+public class Assignment1Q9 {
+
+	public static void main(String[] args) {
+			
+		Students ob[]=new Students[3];
+	//	Students s=new Students();
+		int a=0,b=0,c=0;
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<3;i++)
+		{
+			a=sc.nextInt();
+			b=sc.nextInt();
+			c=sc.nextInt();
+			ob[i]=new Students(a,b,c);
+		}
+		int m=ob[1].totalmarks(ob);
+		System.out.println(m);
+	}
+
+}
