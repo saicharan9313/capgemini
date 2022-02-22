@@ -1,0 +1,120 @@
+public class StringAssigment {
+
+	public static void main(String[] args) {
+            
+		String str= "Hello World";
+		// determine length of string
+		
+	int len = str.length();
+	System.out.println("the length is: "+len);
+	
+	// join the strings
+
+	String str1 = new String("Hello ");
+	String str2= new String("How Are You");
+	System.out.println("strings are: "+str1+str2);
+	
+	// ceated a new string str3
+
+      
+	String str3 = new String("Java String pool refers to collection of Strings which are stored in heap memory");
+             // printing the string in lowercase
+            
+       System.out.println("lower case is: "+str3.toLowerCase());
+           
+             //printing the string in upper case
+     
+             System.out.println("Upper case is: "+str3.toUpperCase());
+             
+             
+             str3.replace('a','$');
+             
+             System.out.println(str3);
+             
+             if(str3.contains("collection")) {
+            	 
+             System.out.println("collection is available");
+             }
+              else{
+            	 System.out.println("not avaiable");
+             
+             }
+             
+             String str4 = new String("java string pool refers to collection of strings which are stored in heap memory");
+	
+	          if(str4.equals(str3)) {
+	        	  System.out.println("they r equal: ");
+	          }
+	          else {
+	        	  System.out.println("not equal");
+	          }
+	          
+	          
+	          if(str4.equalsIgnoreCase(str3)) {
+	        	  System.out.println("matches with the original string");
+	        	  
+	          }
+	          else {
+	        	  System.out.println("they r not equal");
+	          }
+	          
+	    
+	    // stringbuffer
+	          
+	          StringBuffer sb =new StringBuffer("StringBuffer”, is a peer class of String"); 
+	          
+	          sb.append(" ,“that provides much of “");
+	         
+	          sb.append("“the functionality of strings”");
+	          System.out.println(sb);
+	
+	           
+	          StringBuffer sb1 =new StringBuffer("It is used to  at the specified index position” ");
+	          
+	          sb1.insert(14, "“insert text”");
+	          System.out.println(sb1);
+	         
+	          
+	           
+	
+	          StringBuffer sb2 =new StringBuffer(" “This method returns the reversed object on which it was called” ");
+	
+	          System.out.println(sb2.reverse()); 
+	          
+	          
+StringBuilder sbu =new StringBuilder("StringBuffer”, is a peer class of String"); 
+	          
+	          sbu.append(" ,“that provides much of “");
+	         
+	          sbu.append("“the functionality of strings”");
+	          System.out.println(sbu);
+	
+	           
+	          StringBuilder sb3 =new StringBuilder("It is used to  at the specified index position” ");
+	          
+	          sb3.insert(14, "“insert text”");
+	          System.out.println(sb3);
+	         
+	          
+	           
+	
+	          StringBuffer sb4 =new StringBuffer(" “This method returns the reversed object on which it was called” ");
+	
+	          System.out.println(sb4.reverse()); 
+	          
+	          
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+}

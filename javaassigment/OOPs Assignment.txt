@@ -1,0 +1,362 @@
+Q1.
+
+import java.util.Scanner;
+
+public class Assignment2Q1 {
+	public static void main(String [] args) {
+	}
+}
+
+class SingletoninheritCheck{
+	
+	private static SingletoninheritCheck single;
+	private SingletoninheritCheck() {
+		
+	}
+	
+	public static SingletoninheritCheck getInstance() {
+		System.out.println("This is singleton class");
+		return single;
+	}
+	
+}
+
+/*class check extends SingletoninheritCheck{
+	
+}*/
+
+Q2.
+import java.util.ArrayList;
+
+public class Assignment2Q2 {
+	int salary = 10000;
+    public int getSalary(int salary){
+    	this.salary = salary;
+    	return salary;
+    }
+    
+    public int totalEmployeesSalary(ArrayList<Integer> employeeSalaries){
+    	int totalsal = 0;
+    	for(Integer  sal : employeeSalaries ) {
+    		totalsal += sal;
+    	}
+    	return totalsal;
+    		
+    }
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Assignment2Q2 myObj2 = new Assignment2Q2();
+		Manager manager = new Manager();
+		
+		int managerSalary = manager.getSalary(myObj2.salary);
+		
+		Labour labour = new Labour();
+		
+		int labourSalary = labour.getSalary(myObj2.salary);
+		
+		ArrayList<Integer>employeeSalary = new ArrayList<>();
+		employeeSalary.add(managerSalary);
+		employeeSalary.add(labourSalary);
+		
+		int Total = myObj2.totalEmployeesSalary(employeeSalary);
+		
+		System.out.println("Total Employee salary "+Total);
+
+	}
+
+}
+class Manager extends Assignment2Q2 {
+    @Override
+    public int getSalary(int salary) {
+        int incentive = 5000+salary;
+        return incentive;
+    }
+}
+
+class Labour extends Assignment2Q2 {
+    @Override
+    public int getSalary(int salary) {
+        int overtime = 500+salary;
+		return overtime;
+    }
+}
+
+Q3.
+import java.util.ArrayList;
+
+public class Assignment2Q3 {
+	
+	int totalDeposits=10000;
+	public int getCash(int totalDeposits){
+    	this.totalDeposits=totalDeposits;
+		return totalDeposits;
+    }
+	public int totalCashInBank(ArrayList<Integer> cash){
+		int totalcash =0;
+		for(Integer Cash : cash) {
+			totalcash+=Cash;
+		}
+		return totalcash;
+			
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Assignment2Q3 myObj = new Assignment2Q3();
+		CurrentAccount CA= new CurrentAccount();
+		
+		int totalcurrent = CA.getCash(myObj.totalDeposits);
+		
+		SavingsAccount SA = new SavingsAccount();
+		int totalsaving = SA.getCash(myObj.totalDeposits);
+		
+		ArrayList<Integer>total=new ArrayList<>();
+		total.add(totalcurrent);
+		total.add(totalsaving);
+		
+		int totalmoney = myObj.totalCashInBank(total);
+		
+		System.out.println(totalmoney);
+		
+
+	}
+	
+
+}
+class CurrentAccount extends Assignment2Q3 {
+    int totalDeposits = 10000;
+    int creditLimit = 2000;
+    @Override
+    public int getCash(int totalDeposits) {
+    	int Tot_Current = totalDeposits+creditLimit;
+    	return Tot_Current;
+    }
+}
+class SavingsAccount extends Assignment2Q3 {
+    int totalDeposits = 10000;
+    int fixedDepositAmount = 5000;
+    @Override
+    public int getCash(int totalDeposits) {
+    	int Tot_savings = totalDeposits+fixedDepositAmount;
+    	return Tot_savings;
+    }
+}
+
+Q4.
+public class Assignment2Q4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		question4 s1 = new question41();
+		question4 s2 = new question42();
+		
+		s1.answer();
+		s2.answer();
+	}
+
+}
+abstract class question4{
+	abstract void answer();
+}
+
+class question41 extends question4{
+	@Override
+	public void answer() {
+		System.out.println("its and publicc clas overrid by my abstact clas");
+	}
+}
+class question42 extends question4{
+	@Override
+	public void answer() {
+		System.out.println("its and another publicc clas overrid by my abstact clas");
+	}
+}
+
+Q5.
+public class Assignment2Q5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Rectangle5 rectangle= new Rectangle5();
+		Cube5 cube = new Cube5();
+		Line5 line = new Line5();
+		
+		System.out.println(rectangle.draw());
+		System.out.println(cube.draw());
+		System.out.println(line.draw());
+		
+	}
+
+}
+class Rectangle5 extends Shape5 {
+    @Override
+    public String draw() {
+    	String Draw = "Draw the shape Rectangle";
+		return Draw ;
+    }
+}
+
+class Line5 extends Shape5{
+    @Override
+    public String draw() {
+    	String Draw = "Draw the shape Line";
+    	return Draw;
+    }
+}
+
+class Cube5 extends Shape5 {
+    @Override
+    public String draw() {
+    	String Draw = "Draw the shape Cube";
+    	return Draw;
+    }
+}
+abstract class Shape5 {
+    abstract public String draw();
+}
+
+Q7.
+
+import java.util.Scanner;
+public class Assignment2Q7 {
+	Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub	
+		Assignment2Q7 last = new Assignment2Q7();
+		last.selectRoles();
+	}
+	private void selectRoles(){
+		System.out.println("Enter the role :");
+		String role = sc.nextLine();
+		
+		roles(role);
+	}
+    private void roles(String role){
+    	if(role.equalsIgnoreCase("CUSTOMER")) {
+    		placeOrder();
+    	}
+    	else if (role.equalsIgnoreCase("OWNER")) {
+    		addItems();
+    	}
+    	else {
+    		System.out.println("Please Enter Valid Input!");
+    	}
+    }
+    private void addItems() {
+    	System.out.println("Choose Item to purchase");
+    	System.out.println("1. Candy\n2. Cookie\n3. Ice Cream");
+    	System.out.println("Enter No.of items to buy :");
+    	
+    	int it = sc.nextInt();
+    	addItemsOperation(it);
+    }
+    private void addItemsOperation(int choice) {
+    	switch(choice) {
+    	case 1:
+    		Candy objCandy = new Candy();
+    		System.out.println("Enter the amount of candies required :");
+    		int need = sc.nextInt();
+    		int total = objCandy.addCandies(need);
+    		System.out.println(total);
+    		break;
+    	case 2:
+    		Cookie objCookie = new Cookie();
+    		System.out.println("Enter the amount of cookies required :");
+    		int need1 = sc.nextInt();
+    		int total1 = objCookie.addCookies(need1);
+    		System.out.println(total1);
+    		break;
+    	case 3:
+    		IceCream objIce = new IceCream();
+    		System.out.println("Enter the amount of IceCreames required :");
+    		int need2 = sc.nextInt();
+    		int total2 = objIce.addIceCreams(need2);
+    		System.out.println(total2);
+    		break;
+		default :
+			System.out.println("enter valid things");
+			break;
+    	}
+    		
+    }
+    private void placeOrder() {
+    	System.out.println("Choose Item to buy");
+    	System.out.println("1. Candy\n2. Cookie\n3. Ice Cream");
+    	System.out.println("select the items to buy :");
+    	
+    	int it = sc.nextInt();
+    	placeOrderOperation(it);
+    }
+    private void placeOrderOperation(int choice) {
+    	switch(choice){
+    	case 1:
+    		Candy candy = new Candy();
+    		System.out.println("Enter the amount of candies required :");
+    		int need1 = sc.nextInt();
+    		candy.addCandies(need1);
+    		System.out.println("Total amount to buy Candies");
+    		int total= candy.getCost();
+    		System.out.println(total);
+    		break;
+    	case 2:
+    		Cookie cookie = new Cookie();
+    		System.out.println("Enter the amount of candies required :");
+    		int need2= sc.nextInt();
+    		cookie.addCookies(need2);
+    		System.out.println("Enter the amount of Cookies to be buy :");
+    		total= cookie.getCost();
+    		System.out.println(total);
+    		break;
+    	case 3:
+    		IceCream iceCream = new IceCream();
+    		System.out.println("Enter the amount of candies required :");
+    		int need3= sc.nextInt();
+    		iceCream.addIceCreams(need3);
+    		System.out.println("Enter the amount of IceCreams to be buy :");
+    		total= iceCream.getCost();
+    		System.out.println(total);
+    		break;
+    	}
+    }
+
+}
+abstract class DesertItem {
+
+    abstract public int getCost();
+}
+class Candy extends DesertItem {
+	int noOfCandies = 1 ;
+	int Dollarconvertedrupee=60;
+    public int addCandies(int candies){
+    	this.noOfCandies += candies;
+    	return candies;
+    }
+    public int getCost() {
+    	int CandiesTotal = noOfCandies*Dollarconvertedrupee;
+    	return CandiesTotal;
+    }
+}
+class Cookie extends DesertItem {
+	int noofCookies=1;
+	int Euroconvertedrupee=70;
+    public int addCookies(int candies){
+    	this.noofCookies+=noofCookies;
+    	return noofCookies;
+    }
+    public int getCost() {
+    	int CookiesTotal = noofCookies*Euroconvertedrupee;
+    	return CookiesTotal;
+    }
+}
+class IceCream extends DesertItem {
+	int noOfIceCreames=1;
+	int Rupees ;
+    public int addIceCreams(int candies){
+    	this.noOfIceCreames+=noOfIceCreames;
+    	return noOfIceCreames;
+    }
+    public int getCost() {
+    	return noOfIceCreames;
+    }
+}

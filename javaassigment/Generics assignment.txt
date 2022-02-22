@@ -1,0 +1,222 @@
+ ass1
+
+package Genericpackage;
+/*1) Use a HashSet to hold Employee Objects. Upon running the application, the details of the
+employees added to the HashSet should be displayed.
+Employee <<class>>
+|-- id
+|-- name
+|-- salary
+|-- department
+|-- displayDetails()
+Feel free to add properties and methods to Employee Class
+Note: if we try to store any object other than Employee Object in HashSet, we should not be
+allowed to.
+
+*/
+
+
+// This also want a Employee.java file
+
+import java.util.HashSet;
+
+
+
+
+public class AssignmentGeneric1 
+{
+	class test
+	{
+		int a;
+		test(int b)
+		{
+			this.a=b;
+		}
+		void display()
+		{
+			System.out.println(a);
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		HashSet<Employee> emp =new HashSet<>();
+		
+		Employee obj2 = new Employee(8,"saicharan",2078,"ceo");
+		Employee obj3 = new Employee(3,"mani",1558,"dam");
+		// test t = new test(4);
+		
+		emp.add(ob2);
+		emp.add(obj3);
+	  //  emp.add(t); // trying to add another object
+		
+		for(Employee e:emp )
+		{
+			e.displayDetails();
+		}
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
+-----------------
+package Genericpackage;
+
+// this class for AssignmentGeneric1
+
+public class Employee {
+	int id=0;
+	String name;
+	int salary;
+	String department;
+	
+	public Employee(int id,String name,int salary,String department)
+	{
+		super();
+		this.id=id;
+		 this.name=name;
+		 this.salary= salary;
+		 this.department=department;
+		
+	}
+
+
+ public void displayDetails()
+ {
+	 System.out.println(" details are : " + id +" "+name+ " "+ salary+ " "+department);
+ }
+	 
+	 
+}
+
+
+########################################################################################################
+
+ques 2
+
+
+public class AssignmentGeneric2 
+{
+	public static void main(String[] args)
+	{
+		HashMap<Integer,Double> obj8 =new HashMap<Integer,Double>(10);
+		obj.put(35,170.09);
+		obj.put(28,450.45);
+		obj.put(89,125.52);
+		obj.put(42,350.52);
+		obj.put(1,982.88);
+		obj.put(21,425.25);
+		obj.put(13,350.85);
+		obj.put(74,70.49);
+		obj.put(89,17.52);
+		obj.put(9,7.79);
+		
+		System.out.println(obj8);
+	
+	
+}
+}
+
+####################################################################################################
+
+ques 3
+
+1.
+public class AssignmentGeneric3 {
+	
+	
+	
+	public static void main(String[] args) {
+		
+		Integer [] array = {1,2,3,4,5,6,7,8};
+		
+		swap1<Integer> n=new swap1<Integer>();
+		Integer  x[]=n.swap(array, 2,3 );
+		for (int i=0;i<x.length;i++)
+		{
+			System.out.print(x[i]+" ");
+		}
+		
+		
+
+	}
+
+	
+
+}
+-----------------
+2.public class swap1<T> {
+	
+	public <T> T[] swap(T array[], int i, int j)
+	{
+		T temp;
+		
+		temp=array[i];
+		array[i]=array[j];
+		array[j]=temp;
+		return array;
+	}
+
+}
+
+
+#####################################################
+
+ques 4
+
+class pair<T1, T2> 
+{
+	T1 a;
+	T2 b;
+	public T1 getkey() {
+		return a;
+	}
+	public void setkey(T1 a) {
+		this.a = a;
+	}
+	public T2 getvalue() {
+		return b;
+	}
+	public void setvalue(T2 b) {
+		this.b = b;
+	}
+
+
+}
+public class AssignmentGeneric4 {
+	
+	public static void main(String[] arg)
+	
+	{
+		// a
+		
+		pair<String,String> obj =new pair<String,String>();
+		obj.setkey("1");
+		obj.setvalue("Hello");
+	//    obj.setkey(1);  // not accepting the int types
+	 //   obj.setvalue(1);
+		
+		System.out.println(obj.getkey());
+		System.out.println(obj.getvalue());
+		
+		
+		// b
+		
+		pair<String,Date> obj1=new pair<>();
+		obj1.setkey("Today is ");
+		obj1.setvalue(new Date());
+	//	obj1.setkey(1);  // not accepting the int data type
+		
+		System.out.println(obj1.getkey());
+		System.out.println(obj1.getvalue());
+
+
+	}
+}
+

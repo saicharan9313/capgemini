@@ -1,0 +1,131 @@
+      //question 1
+
+
+
+import java.util.*;  
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc= new Scanner(System.in);
+        System.out.print("Enter first number");  
+        int a= sc.nextInt();  
+        System.out.print("Enter second number");  
+        int b= sc.nextInt();  
+	      try{
+         int output=a/b;
+         System.out.println ("Result: "+output);
+      }
+      catch(ArithmeticException e){
+         System.out.println ("You Shouldn't divide a number by zero");
+      }
+	}
+}
+
+
+
+ #####################################################################
+
+//question 2
+
+import java.util.*;  
+
+public class Main
+
+    public static int[] findTwoSum(int[] list, int sum) {
+        throw new UnsupportedOperationException("Waiting to be implemented.");
+    }
+
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter first number");  
+        int a= sc.nextInt();  
+        System.out.print("Enter second number");  
+        int b= sc.nextInt(); 
+        int[] arr = findTwoSum(new int[] { a,b}, b);
+        if(arr != null) {
+            System.out.println(arr[0] + " " + arr[1]);
+        }
+    }
+
+}
+
+
+
+#####################################################################
+
+//QUESTION 3
+
+
+import java.util.*;  
+import java.util.Scanner;
+
+class InsufficientBalanceException extends Exception {
+  private double balance;
+  public InsufficientBalanceException(double amount) {
+    this.balance = amount;
+
+  }
+  public double getBalance() {
+    return balance;
+  }
+
+}
+
+class Account {
+
+  private int accountNumber;
+  private double amount=0;
+  
+  public Account(int accountNumberNum) {
+    this.accountNumber = accountNumber;
+  }
+
+  public void deposit(double deposit) {
+    amount = amount + deposit;
+  }
+
+  public void withdraw(double withdraw) throws InsufficientBalanceException {
+
+    if(withdraw<amount) {
+      amount = amount - withdraw;
+    }else {
+      throw new InsufficientBalanceException(amount);
+    }
+
+  }
+
+}
+
+class Main {
+  public static void main(String[] args) {
+      
+        double depositAmount, withdrawAmount;
+        long accountId;
+        Scanner accountid=new Scanner(System.in);
+        System.out.println("Enter id");
+        accountId = accountId.nextLong()
+
+        Account account = new Account(accountId);
+
+        Scanner deposit=new Scanner(System.in);
+        System.out.println("Deposit an amount");
+        depositAmount=deposit.nextDouble();
+        account.deposit(depositAmount);
+
+        Scanner wd=new Scanner(System.in);
+        System.out.println("Withdraw an amount");
+        withdrawAmount=wd.nextDouble();
+
+  try{
+    account.withdraw(withdrawAmount);
+  }catch(InsufficientBalanceException e) {
+
+    System.out.println("Can't withdraw money. Remaining account balance is : "+e.getBalance());
+  }
+  }
+}
+
+
+###########################################################################
+
