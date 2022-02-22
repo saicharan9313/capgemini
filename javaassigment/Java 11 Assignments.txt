@@ -1,0 +1,174 @@
+Q1.
+
+import java.util.Scanner;
+
+public class Assignment10Q1 {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		var a = s.nextInt();
+		var b = s.nextInt();
+		var c = s.nextInt();
+		
+		SI simple = (var p,var t,var r)->{
+			System.out.print("The simple intrest is ");
+			return (p*t*r)/100;
+		};
+		System.out.print(simple.intrest(a,b,c));
+	}
+}
+
+
+@FunctionalInterface
+interface SI{
+	int intrest(int P,int T,int R);
+}
+
+
+Q2.
+
+Q3.
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Assignment10Q3 {
+
+	public static void main(String[] args) {
+		String a = "A quick brown fox jumps over the lazy dog";
+		ArrayList<String> list = new ArrayList<>(Arrays.asList(a.split(" ")));
+		
+		
+		String b[] = list.toArray(size->new String[size]);
+		System.out.println(Arrays.toString(b));
+		
+		}
+	}
+
+Q4.
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class Assignment10Q4 {
+
+	public static void main(String[] args) throws IOException {
+		var path = Paths.get("C:/","workspace","StudentList.txt");
+		
+		String a = Files.readString(path);
+		
+		System.out.println(a.lines().filter(str->!str.isBlank()).count());
+		
+		
+		a.lines()
+		.filter(str->!str.isBlank())
+		.forEach(System.out::println);
+		
+		
+	}
+
+}
+
+Q5.
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.*;
+
+
+public class Assignment10Q5 {
+	static int g=0;
+
+	public static void main(String[] args) throws IOException {
+		
+
+		Path a=Paths.get("C:/","Users","Desktop","Price.txt");
+		Path b=Paths.get("C:/","Users","Desktop","Total.txt");
+		
+	
+		while(true)
+		{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter option");
+		int o=sc.nextInt();
+		
+		if(o==3)
+		{
+			System.out.println("terminating operation");
+			break;
+		}
+		if(o==2)
+		{
+		
+			 String d1=Integer.toString(g);
+			Files.writeString(b,d1,StandardOpenOption.CREATE);
+			String g1=Files.readString(b);
+			System.out.println("Total price:"+g1);
+			continue;
+							
+		}	
+		while(true)
+		{
+		if(o==1)
+		{
+			System.out.println("enter price:");
+			String l=sc.next();
+			g+=Integer.valueOf(l);
+			Files.writeString(a,l,StandardOpenOption.APPEND);
+			Files.writeString(a,"\n",StandardOpenOption.APPEND);
+			System.out.println("yes/no");
+			String s=sc.next();
+			if(s.equals("no"))
+			{
+				break;
+			}
+		}
+		}
+	}
+	}
+}
+
+Q6.
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpClient.Version;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+
+public class Assignment10Q6 {
+
+	public static void main(String[] args) {
+		String uri = "https://httpbin.org/get";
+		
+		HttpRequest req = HttpRequest.newBuilder()
+		.uri(URI.create(uri))
+		.GET()
+		.version(Version.HTTP_2)
+		.build();
+		
+		HttpClient client = HttpClient.newBuilder()
+							.build();
+		
+		try {
+			HttpResponse<String> resp = client.send(req, BodyHandlers.ofString());
+			System.out.println(resp.statusCode());
+			System.out.println(resp.body());
+			System.out.println(resp.headers());
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+
+	}
+
+}

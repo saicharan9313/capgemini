@@ -1,0 +1,279 @@
+
+import java.util.*;
+enum gender
+{
+	MALE,
+	FEMALE;
+}
+class contact
+{
+	long ph;
+	String name;
+	String email;
+	gender g;
+	public contact(long ph, String name, String email, gender g) {
+		super();
+		this.ph = ph;
+		this.name = name;
+		this.email = email;
+		this.g = g;
+	}
+	
+}
+public class Assignment6Q1 {
+
+	public static void main(String[] args) {
+		
+		contact a=new contact(154789,"charan","saicharan@gmail",gender.MALE);
+		contact b=new contact(145789,"ravi","ravi@gmail",gender.MALE);
+		contact m=new contact(145732,"geethu","geethu@gmail",gender.MALE);
+		contact d=new contact(145789,"prem","prem@gmail",gender.MALE);
+		TreeMap<Long,contact> l=new TreeMap<>(Collections.reverseOrder());
+		l.put(a.ph, a);
+		l.put(b.ph,b);
+		l.put(m.ph, m);
+		l.put(d.ph,d);
+		for(Map.Entry<Long,contact> e: l.entrySet())
+		{
+			
+			System.out.println(e.getKey());
+			
+		}
+		System.out.println("---------------");
+		for(Map.Entry<Long,contact> e: l.entrySet())
+		{
+			contact c=e.getValue();
+			System.out.println(c.ph+" "+c.name+" "+c.email+" "+c.g);
+		}	
+	//	System.out.println(l);
+	}
+
+}
+
+
+question2
+
+import java.util.HashSet;
+
+public class Assignment6Q2 {
+
+	public static void main(String[] args) {
+		//LinkedHashSet<Integer> h = new LinkedHashSet<>();
+		HashSet<Integer> h = new HashSet<>();
+		h.add(10);
+		h.add(15);
+		h.add(20);
+		h.add(25);
+		h.add(30);
+		h.add(10);
+		h.add(25);
+		h.add(40);
+		h.add(45);
+		h.add(50);
+		h.add(55);
+		
+		for(Integer i:h) {
+			System.out.println(i);
+		}
+	}
+
+}
+
+
+
+question3
+
+import java.util.*;
+class employee 
+{
+	public String getName() {
+		return name;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getDep() {
+		return dep;
+	}
+	int id;
+	String name;
+	String dep;
+	int salary;
+	public employee(int id, String name, String dep, int salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dep = dep;
+		this.salary = salary;
+	}
+}
+
+class MynameComp implements Comparator<employee>{
+	 
+    @Override
+    public int compare(employee e1, employee e2) {
+    	return e1.getName().compareTo(e2.getName());
+    }
+}
+class MydepComp implements Comparator<employee>{
+	 
+    @Override
+    public int compare(employee e1, employee e2) {
+    	return e1.getDep().compareTo(e2.getDep());
+    }
+}
+class MyidComp implements Comparator<employee>{
+	 
+    @Override
+    public int compare(employee e1, employee e2) {
+    	return e1.getId()-e2.getId();
+    }
+}
+class MySalaryComp implements Comparator<employee>{
+	 
+    @Override
+    public int compare(employee e1, employee e2) {
+    	return e1.getSalary()-e2.getSalary();
+    }
+}
+public class Assignment6Q3 {
+
+	public static void main(String args[])
+	{
+		employee a=new employee(1,"meli","it",7000);
+		employee a2=new employee(3,"pirr","tech",15000);
+		employee a3=new employee(2,"beem","manag",70000);
+		employee a4=new employee(7,"tom","it",9000);
+		employee a5=new employee(4,"moni","core",12000);
+
+		System.out.println("Enter options \n"+ "1.for ID \n"+"2. for name \n"+ "3. for dep \n"+ "4. for salary \n");
+		Scanner sc=new Scanner(System.in);
+		int ch=sc.nextInt();
+		if(ch==4)
+		{
+			Set<employee> e=new TreeSet<>(new MySalaryComp());
+			e.add(a);
+			e.add(a2);
+			e.add(a3);
+			e.add(a4);
+			e.add(a5);
+			for(employee z: e)
+			{
+				System.out.println(z.id+ " "+ z.name+" "+z.dep+ " "+z.salary);
+			}
+			
+			}
+		if(ch==1)
+		{
+			Set<employee> e=new TreeSet<>(new MyidComp());
+			e.add(a);
+			e.add(a2);
+			e.add(a3);
+			e.add(a4);
+			e.add(a5);
+			for(employee z: e)
+			{
+				System.out.println(z.id+ " "+ z.name+" "+z.dep+ " "+z.salary);
+			}
+			
+			}
+		if(ch==2)
+		{
+			Set<employee> e=new TreeSet<>(new MynameComp());
+			e.add(a);
+			e.add(a2);
+			e.add(a3);
+			e.add(a4);
+			e.add(a5);
+			for(employee z: e)
+			{
+				System.out.println(z.id+ " "+ z.name+" "+z.dep+ " "+z.salary);
+			}
+			
+			}
+if(ch==3)
+{
+	Set<employee> e=new TreeSet<>(new MydepComp());
+	e.add(a);
+	e.add(a2);
+	e.add(a3);
+	e.add(a4);
+	e.add(a5);
+	for(employee z: e)
+	{
+		System.out.println(z.id+ " "+ z.name+" "+z.dep+ " "+z.salary);
+	}
+	
+	}
+}
+}
+
+question4
+import java.util.*;
+import java.time.*;
+class date
+{
+	LocalDate d;
+
+	public date(int a,int b,int c) {
+		super();
+		this.d = LocalDate.of(a, b, c);
+	}
+	public LocalDate get()
+	{
+		return d;
+	}
+}
+public class Assignment6Q4 {
+
+	public static void main(String[] args) {
+		
+
+		date n=new date(2004,12,15);
+		date m=new date(2001,12,15);
+		date o=new date(2008,12,15);
+		date p=new date(2006,12,15);
+		LinkedList<date> j=new LinkedList<>();
+		j.add(n);
+		j.add(m);
+		j.add(o);
+		j.add(p);
+		Iterator<date> tr=j.descendingIterator();
+		while(tr.hasNext())
+		{
+			date r=tr.next();
+			LocalDate z=r.get();
+			if( z.isLeapYear())
+				System.out.println("Your date of birth "+ z+" was a leap year" );
+			else
+			{
+				System.out.println("Your date of birth "+ z+" was not a leap year" );
+			}
+		}
+	/*	
+		LocalDate a=LocalDate.of(2001,12,15);
+		LocalDate b=LocalDate.of(2004,12,15);
+		LocalDate c=LocalDate.of(2000,12,15);
+		LocalDate d=LocalDate.of(2006,12,15);
+		LinkedList<LocalDate> s=new LinkedList<>();
+		s.add(a);
+		s.add(b);
+		s.add(c);
+		s.add(d);
+		Iterator<LocalDate> itr=s.descendingIterator();
+		while(itr.hasNext())
+		{
+			LocalDate z=itr.next();
+			if( z.isLeapYear())
+				System.out.println("Your date of birth "+ z+" was a leap year" );
+			else
+			{
+				System.out.println("Your date of birth "+ z+" was not a leap year" );
+			}
+		}*/
+	}
+
+}
