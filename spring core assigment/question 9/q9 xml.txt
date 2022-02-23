@@ -1,0 +1,10 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<bean id="details1" class="Question9.BeanLIfeCycle">
+<property name="Name" value="sai"/>
+<property name="Id" value="001"/>
+</bean>
+<bean id="details2" class="Question9.BeanLIfeCycle">
+<property name="Name" value="charan"/>
+<property name="Id" value="002"/>
+</bean>
+</beans>

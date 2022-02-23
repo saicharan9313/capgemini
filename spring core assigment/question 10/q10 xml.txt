@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<bean id="P1" class="Question10.PeopleService">
+<property name="Name" value="sai"/>
+<property name="Contact" value="9948652610"/>
+</bean>
+<bean id="P2" class="Question10.PeopleService">
+<property name="Name" value="charan"/>
+<property name="Contact" value="6283539264"/>
+</bean>
+<bean id="peopledetails" class="Question10.PeopleService"/>
+<bean id="detail" class="Question10.Details"/>
+</beans>
