@@ -1,0 +1,7 @@
+.note {
+    border:2px solid rgb(223, 112, 22);
+    outline-color:lightgreen;
+    outline-style: dotted;
+    padding-top: 10;
+    padding-bottom: 10;
+}

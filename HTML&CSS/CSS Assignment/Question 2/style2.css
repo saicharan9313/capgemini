@@ -1,0 +1,10 @@
+body {
+    font-family: Georgia, serif;
+    background-color: rgb(204, 255, 243);
+}
+h2 {
+    text-decoration-line: line-through;
+}
+h3 {
+    text-decoration-line: underline;
+}
